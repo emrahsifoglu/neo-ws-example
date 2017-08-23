@@ -17,3 +17,8 @@ parameters:
 
     # A secret key that's used to generate certain security-related tokens
     secret: ThisTokenIsNotSoSecretChangeIt
+
+    # NeoWs - (Near Earth Object Web Service)
+    neo_ws:
+      end_point: 'https://api.nasa.gov/neo/rest/v1'
+      api_key: ~

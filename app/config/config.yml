@@ -64,3 +64,14 @@ swiftmailer:
     username: '%mailer_user%'
     password: '%mailer_password%'
     spool: { type: memory }
+
+guzzle:
+    logging: true
+    clients:
+        api_new_ws:
+            headers:
+                Accept: "application/json"
+            options:
+                headers:
+                    Accept: "application/json"
+                timeout: 30
