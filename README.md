@@ -59,10 +59,6 @@ Following line will stop the server `php app/console server:stop`.
 
 * **Emrah Sifoğlu** - *Initial work* - [emrahsifoglu](https://github.com/emrahsifoglu)
 
-## License
-
-This project is a task thus source is kept in a private repo.
-
 Resources
 ========
 
