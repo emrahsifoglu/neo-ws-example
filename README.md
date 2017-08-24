@@ -7,7 +7,7 @@
 * [PhpStorm](https://www.jetbrains.com/phpstorm/) - The IDE
 * [Symfony](https://symfony.com/doc/2.8/setup.html) - The Framework
 
-Symfony Components
+### Symfony Components
 
 * [GuzzleBundle](https://github.com/8p/GuzzleBundle) - Integrates PHP HTTP Client, into Symfony 2/3
 * [JMSSerializerBundle](http://jmsyst.com/bundles/JMSSerializerBundle) - Allows you to serialize your data into a requested output format
