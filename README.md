@@ -49,7 +49,7 @@ You can simply run `php app/console server:start`. Below you may find route list
 
 ## Stop
 
-Following will stop the server`php app/console server:stop`.
+Following will line stop the server`php app/console server:stop`.
 
 ## Authors
 
