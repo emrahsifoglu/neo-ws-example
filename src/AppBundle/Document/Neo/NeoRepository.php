@@ -6,7 +6,7 @@ use Doctrine\ODM\MongoDB\DocumentRepository;
 class NeoRepository extends DocumentRepository
 {
 
-    public function getFastest() {
+    public function findOneFastest() {
         return $this->dm->createQueryBuilder(Neo::class)
             ->sort('speed', 'DESC')
             ->limit(1)
@@ -15,7 +15,7 @@ class NeoRepository extends DocumentRepository
             ->getSingleResult();
     }
 
-    public function getSlowest() {
+    public function findOneSlowest() {
         return $this->dm->createQueryBuilder(Neo::class)
             ->sort('speed', 'ASC')
             ->limit(1)
@@ -24,7 +24,14 @@ class NeoRepository extends DocumentRepository
             ->getSingleResult();
     }
 
-    public function deleteAll() {
+    public function findTotalCount() {
+        return $this->dm->createQueryBuilder(Neo::class)
+            ->count()
+            ->getQuery()
+            ->execute();
+    }
+
+    public function removeAll() {
         return $this->dm->createQueryBuilder(Neo::class)
             ->remove()
             ->getQuery()

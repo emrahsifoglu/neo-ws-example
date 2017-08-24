@@ -45,11 +45,11 @@ class NeoFacade
     }
 
     public function getFastest() {
-        return $this->getRepository()->getFastest();
+        return $this->getRepository()->findOneFastest();
     }
 
     public function getSlowest() {
-        return $this->getRepository()->getSlowest();
+        return $this->getRepository()->findOneSlowest();
     }
 
     public function getHazardous($hazardous = true) {
@@ -58,8 +58,12 @@ class NeoFacade
         ]);
     }
 
-    public function deleteAll() {
-        return $this->getRepository()->deleteAll();
+    public function getTotalCount() {
+        return $this->getRepository()->findTotalCount();
+    }
+
+    public function removeAll() {
+        return $this->getRepository()->removeAll();
     }
 
 }
