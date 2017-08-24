@@ -53,7 +53,7 @@ Below you may find route list.
 
 ## Stop
 
-Following will line stop the server `php app/console server:stop`.
+Following line will stop the server `php app/console server:stop`.
 
 ## Authors
 
