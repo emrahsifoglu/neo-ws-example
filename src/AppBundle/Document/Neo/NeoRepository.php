@@ -6,22 +6,26 @@ use Doctrine\ODM\MongoDB\DocumentRepository;
 class NeoRepository extends DocumentRepository
 {
 
-    public function findOneFastest() {
-        return $this->dm->createQueryBuilder(Neo::class)
-            ->sort('speed', 'DESC')
+    public function findOneBySpeed($order, $hazardous = null) {
+        $query = $this->dm->createQueryBuilder(Neo::class);
+
+        if ($hazardous !== null && is_bool($hazardous)) {
+            $query->field('isHazardous')->equals($hazardous);
+        }
+
+        return $query->sort('speed', $order)
             ->limit(1)
             ->readOnly()
             ->getQuery()
             ->getSingleResult();
     }
 
-    public function findOneSlowest() {
+    public function findAllHazardous() {
         return $this->dm->createQueryBuilder(Neo::class)
-            ->sort('speed', 'ASC')
-            ->limit(1)
+            ->field('isHazardous')->equals(true) //->where("function() { return this.isHazardous == true; }")
             ->readOnly()
             ->getQuery()
-            ->getSingleResult();
+            ->execute();
     }
 
     public function findTotalCount() {

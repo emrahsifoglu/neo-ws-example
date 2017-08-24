@@ -44,18 +44,23 @@ class NeoFacade
         return $this->documentManager->getRepository(Neo::class);
     }
 
-    public function getFastest() {
-        return $this->getRepository()->findOneFastest();
+    public function getFastest($hazardous = false) {
+        return $this->getRepository()->findOneBySpeed('DESC', $hazardous);
     }
 
-    public function getSlowest() {
-        return $this->getRepository()->findOneSlowest();
+    public function getSlowest($hazardous = false) {
+        return $this->getRepository()->findOneBySpeed('ASC', $hazardous);
     }
 
-    public function getHazardous($hazardous = true) {
-        return $this->getRepository()->findBy([
-            'isHazardous' => $hazardous
-        ]);
+    public function getHazardous() {
+        $hazardous = [];
+        $cursor = $this->getRepository()->findAllHazardous() ?: [];
+
+        foreach($cursor as $neo) {
+            $hazardous[] = $neo;
+        }
+
+        return $hazardous;
     }
 
     public function getTotalCount() {
