@@ -7,6 +7,10 @@ services:
     guzzle.api_new_ws:
         alias: guzzle.client.api_new_ws
 
+    facade.neo:
+        class: AppBundle\Document\Neo\NeoFacade
+        arguments: [ "@doctrine_mongodb.odm.document_manager" ]
+
     app.neo_ws:
         class: AppBundle\Service\NeoWsService
         arguments: [ "@guzzle.api_new_ws", "%neo_ws%" ]

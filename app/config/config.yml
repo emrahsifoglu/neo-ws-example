@@ -75,3 +75,14 @@ guzzle:
                 headers:
                     Accept: "application/json"
                 timeout: 30
+
+# Doctrine MongoDB
+doctrine_mongodb:
+    connections:
+        default:
+            server: "%mongodb_server%"
+            options: {}
+    default_database: "%mongodb_database%"
+    document_managers:
+        default:
+            auto_mapping: true

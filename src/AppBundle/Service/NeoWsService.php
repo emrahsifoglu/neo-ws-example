@@ -1,6 +1,7 @@
 <?php
 namespace AppBundle\Service;
 
+use AppBundle\Document\Neo\NeoFacade;
 use DateTime;
 use GuzzleHttp\Client as Client;
 
@@ -42,14 +43,23 @@ class NeoWsService
             $query['start_date'] = $startDate->format('Y-m-d');
         }
 
-        return $this->client->request('GET', $this->getFeedUrl(), [
-                'query' => $query
-            ]
-        );
+        $contents = $this->client->request('GET', $this->getFeedUrl(), [
+            'query' => $query
+        ]);
+
+        return $this->parseContents($contents->getBody()->getContents());
     }
 
     private function getFeedUrl() {
         return $this->endPoint . '/feed';
+    }
+
+    private function parseContents($content) {
+        $content = (array)json_decode($content, true);
+
+        $nearEarthObjects = $content['near_earth_objects'];
+
+        return $nearEarthObjects;
     }
 
 }

@@ -22,3 +22,7 @@ parameters:
     neo_ws:
       end_point: 'https://api.nasa.gov/neo/rest/v1'
       api_key: ~
+
+    # Doctrine MongoDB
+    mongodb_server: mongodb://localhost:27017
+    mongodb_database: ~
