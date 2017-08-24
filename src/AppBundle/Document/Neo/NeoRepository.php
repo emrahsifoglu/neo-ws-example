@@ -35,6 +35,14 @@ class NeoRepository extends DocumentRepository
             ->execute();
     }
 
+    public function findHazardousCount() {
+        return $this->dm->createQueryBuilder(Neo::class)
+            ->field('isHazardous')->equals(true) //->where("function() { return this.isHazardous == true; }")
+            ->count()
+            ->getQuery()
+            ->execute();
+    }
+
     public function removeAll() {
         return $this->dm->createQueryBuilder(Neo::class)
             ->remove()

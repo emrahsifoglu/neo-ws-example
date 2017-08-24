@@ -67,6 +67,10 @@ class NeoFacade
         return $this->getRepository()->findTotalCount();
     }
 
+    public function getHazardousCount() {
+        return $this->getRepository()->findHazardousCount();
+    }
+
     public function removeAll() {
         return $this->getRepository()->removeAll();
     }
